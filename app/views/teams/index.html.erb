@@ -1,3 +1,5 @@
+<%= require 'form_helper' %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Teams</h1>
@@ -16,7 +18,6 @@
       <tr>
         <td><%= team.name %></td>
         <td><%= team.abbreviation %></td>
-        <td><%= image_tag "liga1_logo.png", width: 50, height: 50 %></td>>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
