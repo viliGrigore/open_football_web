@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# This creates managers
 class CreateManagers < ActiveRecord::Migration[5.2]
   def change
     create_table :managers do |t|

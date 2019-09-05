@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ManagersControllerTest < ActionDispatch::IntegrationTest
@@ -5,17 +7,17 @@ class ManagersControllerTest < ActionDispatch::IntegrationTest
     @manager = managers(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get managers_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_manager_url
     assert_response :success
   end
 
-  test "should create manager" do
+  test 'should create manager' do
     assert_difference('Manager.count') do
       post managers_url, params: { manager: { age: @manager.age, name: @manager.name, team_id: @manager.team_id } }
     end
@@ -23,22 +25,22 @@ class ManagersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to manager_url(Manager.last)
   end
 
-  test "should show manager" do
+  test 'should show manager' do
     get manager_url(@manager)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_manager_url(@manager)
     assert_response :success
   end
 
-  test "should update manager" do
+  test 'should update manager' do
     patch manager_url(@manager), params: { manager: { age: @manager.age, name: @manager.name, team_id: @manager.team_id } }
     assert_redirected_to manager_url(@manager)
   end
 
-  test "should destroy manager" do
+  test 'should destroy manager' do
     assert_difference('Manager.count', -1) do
       delete manager_url(@manager)
     end

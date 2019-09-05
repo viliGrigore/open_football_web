@@ -1,47 +1,49 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class ManagersTest < ApplicationSystemTestCase
   setup do
     @manager = managers(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit managers_url
-    assert_selector "h1", text: "Managers"
+    assert_selector 'h1', text: 'Managers'
   end
 
-  test "creating a Manager" do
+  test 'creating a Manager' do
     visit managers_url
-    click_on "New Manager"
+    click_on 'New Manager'
 
-    fill_in "Age", with: @manager.age
-    fill_in "Name", with: @manager.name
-    fill_in "Team", with: @manager.team_id
-    click_on "Create Manager"
+    fill_in 'Age', with: @manager.age
+    fill_in 'Name', with: @manager.name
+    fill_in 'Team', with: @manager.team_id
+    click_on 'Create Manager'
 
-    assert_text "Manager was successfully created"
-    click_on "Back"
+    assert_text 'Manager was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Manager" do
+  test 'updating a Manager' do
     visit managers_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Age", with: @manager.age
-    fill_in "Name", with: @manager.name
-    fill_in "Team", with: @manager.team_id
-    click_on "Update Manager"
+    fill_in 'Age', with: @manager.age
+    fill_in 'Name', with: @manager.name
+    fill_in 'Team', with: @manager.team_id
+    click_on 'Update Manager'
 
-    assert_text "Manager was successfully updated"
-    click_on "Back"
+    assert_text 'Manager was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Manager" do
+  test 'destroying a Manager' do
     visit managers_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Manager was successfully destroyed"
+    assert_text 'Manager was successfully destroyed'
   end
 end

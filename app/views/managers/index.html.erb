@@ -17,7 +17,7 @@
       <tr>
         <td><%= manager.name %></td>
         <td><%= manager.age %></td>
-        <td><%= manager.team %></td>
+        <td><%= manager.team.name %></td>
         <td><%= link_to 'Show', manager %></td>
         <td><%= link_to 'Edit', edit_manager_path(manager) %></td>
         <td><%= link_to 'Destroy', manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>

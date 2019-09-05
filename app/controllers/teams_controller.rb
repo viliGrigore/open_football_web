@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: %i[show edit update destroy]
 
   # GET /teams
   # GET /teams.json
@@ -9,8 +11,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   # GET /teams/1.json
-  def show
-  end
+  def show; end
 
   # GET /teams/new
   def new
@@ -18,18 +19,17 @@ class TeamsController < ApplicationController
   end
 
   # GET /teams/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /teams
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
+        TeamMailer.send_creation_message.deliver_later
       else
         format.html { render :new }
         format.json { render json: @team.errors, status: :unprocessable_entity }
